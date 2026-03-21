@@ -1,4 +1,4 @@
-# 🔥 Ising Model (Triangular Lattice)
+# Ising Model (Triangular Lattice)
 
 ## 🧠 Overview
 This project explores the Ising model on a **2D triangular lattice**, focusing on phase transitions and collective behavior of spins.
