@@ -5,9 +5,9 @@ This repository contains my work on **ordinary and partial differential equation
 ### 🔹 What I’m exploring
 - Numerical solutions of ODEs: **Euler, Modified Euler, Advanced Euler, Runge-Kutta (RK4)**
 - Coupled differential equations and dynamical systems  
-- PDEs: **2D Heat Equation, Laplace Equation (boundary value problems)**  
+- PDEs: **2D Heat Equation, Laplace Equation (boundary value problems - Dirichlet and Neumann )**  
 - Iterative methods: **Gauss-Seidel, relaxation techniques**  
-- Physical systems: **oscillations in a ring of particles, oscillating pendulum , heat equation -- steady state**
+- Physical systems: **oscillations in a ring of particles, oscillating pendulum **
 
 ### 🔹 Focus
 - Accuracy vs stability of numerical methods  
