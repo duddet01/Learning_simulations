@@ -7,7 +7,7 @@ This repository contains my work on **ordinary and partial differential equation
 - Coupled differential equations and dynamical systems  
 - PDEs: **2D Heat Equation, Laplace Equation (boundary value problems)**  
 - Iterative methods: **Gauss-Seidel, relaxation techniques**  
-- Physical systems: **oscillations in a ring of particles, diffusion models**
+- Physical systems: **oscillations in a ring of particles, oscillating pendulum , heat equation -- steady state**
 
 ### 🔹 Focus
 - Accuracy vs stability of numerical methods  
