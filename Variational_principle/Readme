@@ -1,24 +1,34 @@
 # 📘 1D Periodic Potential — Plane Wave Method
 
-This project solves the Schrödinger equation for an electron in a **1D periodic potential** using a **plane-wave variational approach**, based on the given assignment.
+This project solves the Schrödinger equation for an electron in a **1D periodic potential** using a **plane-wave variational approach**.
 
 ---
 
 ## 🔹 Problem Setup
 
-We solve:
+We solve the time-independent Schrödinger equation:
 
-(-1/2 ∇² + V(x)) ψ(x) = E ψ(x)
+$$
+\left(-\frac{1}{2}\nabla^2 + V(x)\right)\psi(x) = E \psi(x)
+$$
 
-with periodic potential:
+with a periodic potential:
 
+$$
 V(x + a) = V(x)
+$$
 
-V(x) = -V0 [1 + cos(2πx/a)]
+We choose:
 
-Using Bloch’s theorem:
+$$
+V(x) = -V_0 \left[1 + \cos\left(\frac{2\pi x}{a}\right)\right]
+$$
 
-ψ_k(x) = (1/√a) Σ_G c_G exp[i(k+G)x]
+Using **Bloch’s theorem**, the wavefunction is written as:
+
+$$
+\psi_k(x) = \frac{1}{\sqrt{a}} \sum_G c_G \, e^{i(k+G)x}
+$$
 
 ---
 
@@ -26,72 +36,113 @@ Using Bloch’s theorem:
 
 Convert the Schrödinger equation into a **matrix eigenvalue problem**:
 
-H c = E c
+$$
+H \mathbf{c} = E \mathbf{c}
+$$
 
 ---
 
 ## 🔹 Hamiltonian Matrix Elements (Derivation)
 
-We compute:
+We compute matrix elements in the plane-wave basis:
 
-H_{G,G'} = ⟨φ_G | H | φ_{G'}⟩
+$$
+H_{G,G'} = \langle \phi_G | \hat{H} | \phi_{G'} \rangle
+$$
 
 where:
 
-φ_G(x) = (1/√a) exp(iGx)
+$$
+\phi_G(x) = \frac{1}{\sqrt{a}} e^{iGx}
+$$
 
 ---
 
-### ✅ Step 1: Kinetic Energy Term
+## ✅ Step 1: Kinetic Energy Term
 
-Operator:
+The kinetic operator is:
 
-T = -1/2 ∇²
+$$
+\hat{T} = -\frac{1}{2}\nabla^2
+$$
 
-Applying:
+Acting on a plane wave:
 
--1/2 ∇² exp[i(k+G)x] = (1/2)(k+G)² exp[i(k+G)x]
+$$
+-\frac{1}{2}\nabla^2 e^{i(k+G)x}
+= \frac{1}{2}(k+G)^2 e^{i(k+G)x}
+$$
 
-So:
+Thus, the matrix element becomes:
 
-T_{G,G'} = (1/2)(k+G)² δ_{G,G'}
+$$
+T_{G,G'} = \frac{1}{2}(k+G)^2 \, \delta_{G,G'}
+$$
 
-✔ Diagonal contribution
-
----
-
-### ✅ Step 2: Potential Energy Term
-
-V_{G,G'} = (1/a) ∫₀ᵃ V(x) exp[-i(G-G')x] dx
-
-Substitute:
-
-V(x) = -V0 - V0 cos(2πx/a)
+✔ **Diagonal in plane-wave basis**
 
 ---
 
-#### (i) Constant term
+## ✅ Step 2: Potential Energy Term
 
-= -V0 δ_{G,G'}
+We compute:
 
----
+$$
+V_{G,G'} = \frac{1}{a} \int_0^a V(x)\, e^{-i(G-G')x}\, dx
+$$
 
-#### (ii) Cosine term
+Substitute the potential:
 
-cos(2πx/a) = (1/2)[exp(i2πx/a) + exp(-i2πx/a)]
-
-This gives:
-
-V_{G,G'} = -V0/2  if G - G' = ±(2π/a)
-
----
-
-### ✅ Final Hamiltonian
-
-H_{G,G'}(k) = (1/2)(k+G)² δ_{G,G'}
-              - V0 δ_{G,G'}
-              - (V0/2) δ_{G-G', ±2π/a}
+$$
+V(x) = -V_0 - V_0 \cos\left(\frac{2\pi x}{a}\right)
+$$
 
 ---
 
+### 🔸 (i) Constant Term
 
+$$
+- V_0 \, \delta_{G,G'}
+$$
+
+---
+
+### 🔸 (ii) Cosine Term
+
+Using:
+
+$$
+\cos\left(\frac{2\pi x}{a}\right)
+= \frac{1}{2}\left(e^{i\frac{2\pi x}{a}} + e^{-i\frac{2\pi x}{a}}\right)
+$$
+
+we obtain coupling between plane waves:
+
+$$
+V_{G,G'} =
+-\frac{V_0}{2}
+\quad \text{if } G - G' = \pm \frac{2\pi}{a}
+$$
+
+---
+
+## ✅ Final Hamiltonian
+
+Combining both contributions:
+
+$$
+H_{G,G'}(k) =
+\frac{1}{2}(k+G)^2 \, \delta_{G,G'}
+- V_0 \, \delta_{G,G'}
+- \frac{V_0}{2} \, \delta_{G-G', \pm \frac{2\pi}{a}}
+$$
+
+---
+
+## 🔹 Key Insight
+
+- **Diagonal terms** → kinetic energy + constant potential  
+- **Off-diagonal terms** → coupling between plane waves  
+- This coupling is responsible for:
+  - Band formation  
+  - Band gaps at Brillouin zone boundaries  
