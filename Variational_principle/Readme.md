@@ -100,10 +100,7 @@ $$
 ---
 
 ### 🔸 (i) Constant Term
-
-$$
-- V_0 \, \delta_{G,G'}
-$$
+  $$-V_0 \delta_{G,G'}$$
 
 ---
 
@@ -130,12 +127,10 @@ $$
 
 Combining both contributions:
 
-$$
-H_{G,G'}(k) =
-\frac{1}{2}(k+G)^2 \, \delta_{G,G'}
-- V_0 \, \delta_{G,G'}
-- \frac{V_0}{2} \, \delta_{G-G', \pm \frac{2\pi}{a}}
-$$
+
+$$H_{G,G'}(k) =
+\frac{1}{2}(k+G)^2 \, \delta_{G,G'}- V_0 \, \delta_{G,G'}- \frac{V_0}{2} \, \delta_{G-G', \pm \frac{2\pi}{a}}$$
+
 
 ---
 
