@@ -1,1 +1,97 @@
+# 📘 1D Periodic Potential — Plane Wave Method
+
+This project solves the Schrödinger equation for an electron in a **1D periodic potential** using a **plane-wave variational approach**, based on the given assignment.
+
+---
+
+## 🔹 Problem Setup
+
+We solve:
+
+(-1/2 ∇² + V(x)) ψ(x) = E ψ(x)
+
+with periodic potential:
+
+V(x + a) = V(x)
+
+V(x) = -V0 [1 + cos(2πx/a)]
+
+Using Bloch’s theorem:
+
+ψ_k(x) = (1/√a) Σ_G c_G exp[i(k+G)x]
+
+---
+
+## 🔹 Goal
+
+Convert the Schrödinger equation into a **matrix eigenvalue problem**:
+
+H c = E c
+
+---
+
+## 🔹 Hamiltonian Matrix Elements (Derivation)
+
+We compute:
+
+H_{G,G'} = ⟨φ_G | H | φ_{G'}⟩
+
+where:
+
+φ_G(x) = (1/√a) exp(iGx)
+
+---
+
+### ✅ Step 1: Kinetic Energy Term
+
+Operator:
+
+T = -1/2 ∇²
+
+Applying:
+
+-1/2 ∇² exp[i(k+G)x] = (1/2)(k+G)² exp[i(k+G)x]
+
+So:
+
+T_{G,G'} = (1/2)(k+G)² δ_{G,G'}
+
+✔ Diagonal contribution
+
+---
+
+### ✅ Step 2: Potential Energy Term
+
+V_{G,G'} = (1/a) ∫₀ᵃ V(x) exp[-i(G-G')x] dx
+
+Substitute:
+
+V(x) = -V0 - V0 cos(2πx/a)
+
+---
+
+#### (i) Constant term
+
+= -V0 δ_{G,G'}
+
+---
+
+#### (ii) Cosine term
+
+cos(2πx/a) = (1/2)[exp(i2πx/a) + exp(-i2πx/a)]
+
+This gives:
+
+V_{G,G'} = -V0/2  if G - G' = ±(2π/a)
+
+---
+
+### ✅ Final Hamiltonian
+
+H_{G,G'}(k) = (1/2)(k+G)² δ_{G,G'}
+              - V0 δ_{G,G'}
+              - (V0/2) δ_{G-G', ±2π/a}
+
+---
+
 
