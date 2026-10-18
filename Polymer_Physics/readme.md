@@ -66,7 +66,7 @@ The WCA potential is a purely repulsive, truncated and shifted Lennard–Jones p
 $$
 U_{\mathrm{WCA}}(r) =
 \begin{cases}
-4\varepsilon\left[\left(\dfrac{\sigma}{r}\right)^{12} - \left(\dfrac{\sigma}{r}\right)^{6}\right] + \varepsilon, & r < 2^{1/6}\sigma \\[2ex]
+4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6}\right] + \varepsilon, & r < 2^{1/6}\sigma \\
 0, & r \ge 2^{1/6}\sigma
 \end{cases}
 $$
